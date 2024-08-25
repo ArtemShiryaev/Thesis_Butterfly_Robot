@@ -1,7 +1,7 @@
 clc, close all, clear all
 
 %% Step 0: Define the number of iterations and initialize storage
-N = 5; % Define the number of iterations
+N = 3; % Define the number of iterations
 Order_stat_all = cell(N,1); % Cell array to store order statistic from iterations
 Order_stat_eq77 = cell(N,1);
 raw_data_amp_omega = cell(N,1);

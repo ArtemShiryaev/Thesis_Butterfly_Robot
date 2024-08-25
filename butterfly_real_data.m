@@ -1,12 +1,28 @@
-clc;
+% Script in accordance with Manuscript
+% Data collected by Robotikum AB
+% Last update: 2024-08-25
+% Artem Angelchev Shiryaev
+
+
+clearvars;
 close all;
-clear all;
+
 
 % Define the datasets
 datasets = {'52 grams', '120.5 grams', '154 grams'};
 
+% Add your own path here   
+file_path = 'C:\Users\Artem\Desktop\Matlab_files\';
+
 % Initialize results storage
 Omega_opt_eq100_results = zeros(length(datasets), 1);
+
+% Constants
+XX = 30; % Last XX seconds of steady-state behavior
+new_step_size = 5; % Step size for resampled data
+
+
+
 
 % Loop over each dataset
 for ds = 1:length(datasets)
@@ -21,15 +37,15 @@ for ds = 1:length(datasets)
         case '52 grams'
             scales = [0.008, 0.008, 0.006, 0.005, 0.003, 0.003, 0.003, 0.004, 0.01, 0.02, 0.04, 0.06, 0.08, 0.1];
             input_freq = [2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 8, 10, 12, 14, 16];
-            path_to_data = 'C:\Users\zerzy\Desktop\MSc_Matlab_files\52gmat\';
+            path_to_data = [file_path, '52gmat\'];
         case '120.5 grams'
             scales = [0.015, 0.01, 0.01, 0.01, 0.01, 0.008, 0.004, 0.003, 0.006, 0.01, 0.02, 0.04, 0.07, 0.1];
             input_freq = [3, 3.5, 4, 4.5, 4.75, 5, 5.5, 6, 6.5, 7, 9, 11, 13, 15];
-            path_to_data = 'C:\Users\zerzy\Desktop\MSc_Matlab_files\120_5gmat\';
+            path_to_data = [file_path, '120_5gmat\'];
         case '154 grams'
             scales = [0.015, 0.015, 0.015, 0.008, 0.004, 0.003, 0.006, 0.01, 0.02, 0.03, 0.06, 0.08, 0.1];
             input_freq = [3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 10, 12, 14];
-            path_to_data = 'C:\Users\zerzy\Desktop\MSc_Matlab_files\154gmat\';
+            path_to_data = [file_path, '154gmat\'];
         otherwise
             error('Invalid data set selected.');
     end
@@ -70,12 +86,12 @@ for ds = 1:length(datasets)
         q_temp = resample(q_original, t_with_equally_distributed_sampling); 
         q_with_equally_distributed_sampling = q_temp.Data;
 
-        new_step_size = 5; % This variable defines new step size for resampled data
+        %new_step_size = 5; % This variable defines new step size for resampled data
         q_resampled = q_with_equally_distributed_sampling(1:new_step_size:end);
         t_resampled = t_with_equally_distributed_sampling(1:new_step_size:end);
 
         %% Step 6: Consider only the last XX seconds of steady-state behavior 
-        XX = 30;   
+        %XX = 30;   
         dt_r = t_resampled(2) - t_resampled(1); 
 
         q_steady_state_r = q_resampled(max(1, length(q_resampled) - floor(XX/dt_r) + 1):end);
@@ -165,13 +181,7 @@ estimated_params = fmincon(objective_function, initial_guess, [], [], [], [], lb
 disp('Estimated p1, p2, and p3:');
 disp(estimated_params);
 
-% real_params = [(M*L^2 + Jc), 0.001, M*L*g];
-% disp('Real p1, p2, and p3:');
-% disp(real_params)
-% 
-% temp_residuals = real_params - estimated_params;
-% disp('Residuals for p1, p2, and p3:');
-% disp(temp_residuals)
+
 
 %% Function to compute f(p1, p2, p3)
 function f_value = compute_f(params, data, g)
