@@ -37,8 +37,8 @@ To run this project, you will need the following:
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/your-username/robot-dynamics-calibration.git
-    cd robot-dynamics-calibration
+    git clone https://github.com/ArtemShiryaev/Thesis_Butterfly_Robot.git
+    cd Thesis_Butterfly_Robot
     ```
 
 2. Make sure MATLAB and Simulink are installed and set up on your machine.
