@@ -69,10 +69,10 @@ To run this project, you will need the following:
 
 1. **Open and Simulate the Model**:
 
-   The Simulink model files can be opened and simulated directly in MATLAB. Open the `Model_of_pendulum_dynamics_for_SI_with_dryfriction.slx` or `Model_of_pendulum_dynamics_for_SI_with_dryfriction_clean_4.slx` in Simulink and run the simulation.
+   The Simulink model files can be opened and simulated directly in MATLAB. Open the `Simulink_1.slx` or `Simulink_2.slx` in Simulink and run the simulation.
 
     ```matlab
-    open_system('Model_of_pendulum_dynamics_for_SI_with_dryfriction.slx')
+    open_system('Simulink_1.slx')
     ```
 
 2. **Parameter Adjustment**:
