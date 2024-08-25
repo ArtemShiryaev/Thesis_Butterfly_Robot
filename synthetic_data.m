@@ -54,7 +54,7 @@ for iter = 1:N
     step_size = 0.01; % step size for the solver
     T = 70;   % simulation time
     NNN = 1+(iter-1); % Internal paramater for eq 77 in simulink
-    simIn2 = Simulink.SimulationInput("Model_of_pendulum_dynamics_for_SI_with_dryfriction_clean_4"); 
+    simIn2 = Simulink.SimulationInput("Simulink_2"); 
     number_of_recorded_experiments = length(scales2);
     
     % Set up
@@ -134,7 +134,7 @@ scales = [1,   1,  1,   1,  1,   1,  1,   1,  1,   1,  1,   1,  1]*1e-5;
 step_size = 0.01; % step size for the solver
 T = 70;   % simulation time
 %simIn = Simulink.SimulationInput("Model_of_pendulum_dynamics_for_SI");
-simIn = Simulink.SimulationInput("Model_of_pendulum_dynamics_for_SI_with_dryfriction"); 
+simIn = Simulink.SimulationInput("Simulink_1"); 
 number_of_recorded_experiments = length(scales);
 
 % Set up
