@@ -21,7 +21,7 @@ This project aims to develop and calibrate a dynamic model of a robotic system, 
   
 - `synthetic_data.m`: MATLAB script to generate synthetic datasets for model testing. It simulates different system responses to various input frequencies and helps estimate dynamic parameters using grey-box modeling techniques&#8203;:contentReference[oaicite:1]{index=1}.
 
-- `Model_of_pendulum_dynamics_for_SI_with_dryfriction.slx` and `Model_of_pendulum_dynamics_for_SI_with_dryfriction_clean_4.slx`: Simulink models used to simulate the robot's dynamic behavior with and without friction.
+- `Simulink_1.slx` and `Simulink_2.slx`: Simulink models used to simulate the robot's dynamic behavior with friction.
 
 ## Prerequisites
 
