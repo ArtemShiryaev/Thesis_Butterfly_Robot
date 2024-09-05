@@ -17,11 +17,11 @@ This project aims to develop and calibrate a dynamic model of a robotic system, 
 
 ## Files
 
-- `butterfly_real_data.m`: MATLAB script to process real data from the Butterfly Robot experiments. The script reads experimental datasets, processes the data, and computes optimal system parameters based on frequency response analysis. (For details, see the experimental data processing and model recalibration section of the thesis)&#8203;:contentReference[oaicite:0]{index=0}.
+- `butterfly_real_data.m`: MATLAB script to process real data from the Butterfly Robot experiments. The script reads experimental datasets, processes the data, and computes optimal system parameters based on frequency response analysis. (For details, see the experimental data processing and model recalibration section of the thesis).
   
 - `synthetic_data.m`: MATLAB script to generate synthetic datasets for model testing. It simulates different system responses to various input frequencies and helps estimate dynamic parameters using grey-box modeling techniques&#8203;:contentReference[oaicite:1]{index=1}.
 
-- `Simulink_1.slx` and `Simulink_2.slx`: Simulink models used to simulate the robot's dynamic behavior with friction.
+- `Simulink`: Simulink model used to simulate the robot's dynamic behavior with friction.
 
 ## Prerequisites
 
@@ -69,10 +69,10 @@ To run this project, you will need the following:
 
 1. **Open and Simulate the Model**:
 
-   The Simulink model files can be opened and simulated directly in MATLAB. Open the `Simulink_1.slx` or `Simulink_2.slx` in Simulink and run the simulation.
+   The Simulink model file can be opened and simulated directly in MATLAB. Open the `Simulink.slx`  in Simulink and run the simulation.
 
     ```matlab
-    open_system('Simulink_1.slx')
+    open_system('Simulink.slx')
     ```
 
 2. **Parameter Adjustment**:
